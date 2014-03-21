@@ -19,15 +19,16 @@ class VersionManager(object):
             path: Path on disk to the repository.
         """
         try:
-           if not os.path.exists(path):
-             os.makedirs(path)
-           self._repo = Repo.init(path)
-           self._cf_writer = self._repo.config_writer()
-           self._cf_writer.add_section('user')
-           self._cf_writer.set('user', 'name', KEEPER_NAME)
-           self._cf_writer.set('user', 'email', KEEPER_EMAIL)
+            if not os.path.exists(path):
+                os.makedirs(path)
+            self._repo = Repo.init(path)
+            self._cf_writer = self._repo.config_writer()
+            self._cf_writer.add_section('user')
+            self._cf_writer.set('user', 'name', KEEPER_NAME)
+            self._cf_writer.set('user', 'email', KEEPER_EMAIL)
 
-        except DuplicateSectionError: pass
+        except DuplicateSectionError:
+            pass
 
     def add_file(self, name):
         """Add a file."""
