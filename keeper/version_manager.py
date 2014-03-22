@@ -21,19 +21,19 @@ class VersionManager(object):
         try:
             if not os.path.exists(path):
                 os.makedirs(path)
-            self._repo = Repo.init(path)
-            self._cf_writer = self._repo.config_writer()
-            self._cf_writer.add_section('user')
-            self._cf_writer.set('user', 'name', KEEPER_NAME)
-            self._cf_writer.set('user', 'email', KEEPER_EMAIL)
+            self.repo = Repo.init(path)
+            self.cf_writer = self.repo.config_writer()
+            self.cf_writer.add_section('user')
+            self.cf_writer.set('user', 'name', KEEPER_NAME)
+            self.cf_writer.set('user', 'email', KEEPER_EMAIL)
 
         except DuplicateSectionError:
             pass
 
     def add_file(self, name):
         """Add a file."""
-        self._repo.git.add(name)
+        self.repo.git.add(name)
 
     def commit(self, message):
         """Commit changes to already-added files."""
-        self._repo.git.commit('-m %s' % message)
+        self.repo.git.commit('-m %s' % message)
