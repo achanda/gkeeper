@@ -2,7 +2,7 @@ import unittest
 import tempfile
 import os
 
-from keeper.version_manager import VersionManager
+from gkeeper.version_manager import VersionManager
 
 class VersionManagerTest(unittest.TestCase):
     def setUp(self):

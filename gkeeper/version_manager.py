@@ -4,7 +4,7 @@ from ConfigParser import DuplicateSectionError
 from git import Repo
 import os
 
-KEEPER_NAME = 'keeper'
+KEEPER_NAME = 'gkeeper'
 KEEPER_EMAIL = 'blah@blah.com'
 
 class VersionManager(object):
